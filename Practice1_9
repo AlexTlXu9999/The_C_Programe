@@ -1,0 +1,28 @@
+#include<stdio.h>
+/// <summary>
+/// 统计输入的行数
+/// </summary>
+void main() {
+	int i, ln,tn,en;
+	ln = 0;
+	tn = 0;
+	en = 0;
+
+	while ((i = getchar()) != EOF) {
+		if (i == '\n') {
+			ln++;
+	
+		}
+		if (i == ' ') {
+			tn++;
+		
+		}
+		if (i == '\t') {
+			en++;
+
+		}
+		printf("ln=%d\ttn=%d\ten=%d\n", ln, tn, en);
+	}
+
+	return 0;
+}
