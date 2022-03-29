@@ -1,0 +1,21 @@
+#include<stdio.h>
+#define OUT 1
+#define IN 0
+/// <summary>
+/// practice 1-12
+/// </summary>
+/// <returns></returns>
+int main() {
+	int ch, stale;
+	stale = OUT;
+	while ((ch = getchar()) != EOF) {
+		if (ch == ' ' || ch == '\n' || ch == '\t') {
+			stale = IN;
+	}
+		else if (stale == IN) {
+			stale = OUT;//主要用于解决多次换行问题
+			printf("\n");
+		}
+		putchar(ch);
+	}
+}
