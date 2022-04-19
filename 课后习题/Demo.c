@@ -1,27 +1,29 @@
+//输入在一行中给出2个正整数M和N（1<=M<=N<=500）。
+//在一行中顺序输出M和N区间内素数的个数以及它们的和，数字间以空格分隔。
 #include<stdio.h>
 int main() {
-	int n;//3<=n<=7
-	scanf_s("%d", &n);
-	int x, y,z,m,o;
-	if (n = 3) {
-		for (int i = 100; i < 999; i++) {
-			x = i / 100;
-			y = i / 10 % 10;
-			z = i % 10;
-			if (i == (x * x * x) + (y * y * y )+ (z * z * z)) {
-				printf("%d\n", i);
+	int m, n;
+	scanf_s("%d %d", &m, &n);
+	int sum, cnt;
+	cnt = 0;
+	sum = 0;
+	for (int i = m; i < n; i++) {
+		int isPrime = 1;
+		for (int j = 2; j < i;j++) {
+			int x;
+			x = i % j;
+			if (x == 0) {
+				isPrime = 0;
+				break;
 			}
 		}
-	}
-	if (n = 4) {
-		for (int i = 1000; i < 9999; i++) {
-			x = i / 1000;
-			y = i / 100 % 10;
-			z = i /10%10;
-			m = i % 10;
-			if (i == (x * x * x*x) + (y * y * y*y) + (z * z * z*z)+(m*m*m*m)) {
-				printf("%d\n", i);
-			}
+		if (isPrime) {
+			cnt++;
+			sum = sum + i;
+			printf("%d\n", i);
 		}
+
 	}
+	printf("SUM=%d\nCNT=%d", sum, cnt);
+
 }
